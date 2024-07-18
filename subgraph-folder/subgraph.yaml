@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: DimeSchedule
+    network: arbitrum-sepolia
+    source:
+      address: "0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2"
+      abi: DimeSchedule
+      startBlock: 25798643
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BillAdded
+        - BillPaid
+        - OwnershipTransferred
+      abis:
+        - name: DimeSchedule
+          file: ./abis/DimeSchedule.json
+      eventHandlers:
+        - event: BillAdded(indexed uint256,indexed address,uint256,uint256)
+          handler: handleBillAdded
+        - event: BillPaid(indexed uint256,indexed address,uint256)
+          handler: handleBillPaid
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/dime-schedule.ts

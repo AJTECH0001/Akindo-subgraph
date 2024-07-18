@@ -1,0 +1,8 @@
+{
+  "arbitrum-sepolia": {
+    "DimeSchedule": {
+      "address": "0x3d1e462b8b6e4A33f27B521b255D967aFCB8b5c2",
+      "startBlock": 25798643
+    }
+  }
+}

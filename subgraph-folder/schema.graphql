@@ -1,0 +1,29 @@
+type BillAdded @entity(immutable: true) {
+  id: Bytes!
+  billId: BigInt! # uint256
+  recipient: Bytes! # address
+  amount: BigInt! # uint256
+  lockReleaseTime: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BillPaid @entity(immutable: true) {
+  id: Bytes!
+  billId: BigInt! # uint256
+  recipient: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
