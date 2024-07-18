@@ -27,7 +27,7 @@ function App() {
           )}
           {result?.errors && (
             <form>
-              <label>Error</label>
+              <label>Errorr</label>
               <br />
               <textarea value={JSON.stringify(result.errors, null, 2)} readOnly rows={25} />
             </form>
