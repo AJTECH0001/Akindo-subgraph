@@ -20,7 +20,7 @@ function App() {
         <fieldset>
           {result?.data && (
             <form>
-              <label>Data</label>
+              <label>Dataa</label>
               <br />
               <textarea value={JSON.stringify(result.data, null, 2)} readOnly rows={25} />
             </form>
