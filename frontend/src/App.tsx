@@ -1,6 +1,6 @@
 import logo from './logo.svg'
 import './App.css'
-import { ExampleQueryDocument, ExampleQueryQuery, execute } from '../.graphclient'
+import { ExampleQueryDocument, ExampleQueryQuery, execute } from '../.graphclientrc'
 import React, { useEffect } from 'react'
 import { ExecutionResult } from 'graphql'
 
