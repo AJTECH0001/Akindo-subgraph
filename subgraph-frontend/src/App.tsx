@@ -47,8 +47,8 @@ export default function App() {
   });  
   return (
     <main className="h-full w-[100%] min-h-screen mx-auto max-w-7xl mt-10 flex flex-col gap-y-24">  
-    <h1 className="text-3xl">The Graph Query </h1>  
-  
+    <h1 className="text-3xl text-center ">The Graph Query </h1>  
+    <h2 className="text-3xl">ADMIN DASHBOARD </h2> 
     {status === 'pending' ? (  
       <div>Loading...</div>  
     ) : status === 'error' ? (  
