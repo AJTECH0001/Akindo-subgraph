@@ -2,6 +2,25 @@ import { useQuery, QueryClient, QueryClientProvider } from '@tanstack/react-quer
 import { gql, request } from 'graphql-request'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+type BillAdded = {  
+  id: string;  
+  billId: string;  
+  recipient: string;  
+  amount: string;  
+};  
+
+type BillPaid = {  
+  id: string;  
+  billId: string;  
+  recipient: string;  
+  amount: string;  
+};  
+
+type QueryResponse = {  
+  billAddeds: BillAdded[];  
+  billPaids: BillPaid[];  
+};
 const query = gql`{
   billAddeds(first: 5) {
     id
@@ -16,14 +35,16 @@ const query = gql`{
     amount
   }
 }`
+
+
 const url = 'https://api.studio.thegraph.com/query/83625/akindo/version/latest'
 export default function App() {
-  const { data, status } = useQuery({
-    queryKey: ['data'],
-    async queryFn() {
-      return await request(url, query)
-    }
-  })
+  const { data, status } = useQuery<QueryResponse>({  
+    queryKey: ['data'],  
+    async queryFn() {  
+      return await request<QueryResponse>(url, query);  
+    },  
+  });  
   return (
     <main className="h-full w-[100%] min-h-screen mx-auto max-w-7xl mt-10 flex flex-col gap-y-24">  
     <h1 className="text-3xl">The Graph Query </h1>  
